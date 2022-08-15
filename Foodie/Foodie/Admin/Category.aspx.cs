@@ -23,6 +23,24 @@ namespace Foodie.Admin
 
         protected void btnAddOrUpdate_Click(object sender, EventArgs e)
         {
+            string actionName = string.Empty, imagePath = string.Empty, fileExtension = string.Empty;
+            bool isValidToExecute = false;
+            int categoryId = Convert.ToInt32(hdnId.Value);
+            con = new SqlConnection(Connection.GetConnectionString());
+
+            cmd = new SqlCommand("Category_Crud", con);
+            cmd.Parameters.AddWithValue("@Action", categoryId == 0 ? "INSERT" : "UPDATE");
+            cmd.Parameters.AddWithValue("@CategoryId", categoryId);
+            cmd.Parameters.AddWithValue("@Name", txtCategoryName.Text.Trim());
+            cmd.Parameters.AddWithValue("@IsActive", chkIsActive.Checked);
+
+            if (fuCategoryImage.HasFile)
+            {
+                if (Utils.IsValidExtension(fuCategoryImage.FileName))
+                {
+                    Guid obj = Guid.NewGuid();
+                }
+            }
 
         }
     }
