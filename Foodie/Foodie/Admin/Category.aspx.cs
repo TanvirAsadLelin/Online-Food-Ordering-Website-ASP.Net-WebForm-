@@ -78,7 +78,7 @@ namespace Foodie.Admin
                     lblMsg.Visible = true;
                     lblMsg.Text = "Category " + actionName + " successfully!";
                     lblMsg.CssClass = "alert alert-success";
-                    //getCategories();
+                    getCategories();
                     clear();
 
                 }
@@ -99,12 +99,32 @@ namespace Foodie.Admin
 
         }
 
+        private void getCategories()
+        {
+            con =  new SqlConnection(Connection.GetConnectionString());
+            cmd = new SqlCommand("Category_Crud", con);
+            cmd.Parameters.AddWithValue("@Action","SELECT");
+            cmd.CommandType = CommandType.StoredProcedure;
+            sda = new SqlDataAdapter(cmd);
+            dt = new DataTable();
+            sda.Fill(dt);
+         //   rCategory.DataSource = dt;
+         //   rCategory.DataBind();
+
+
+        }
+
         private void clear()
         {
             txtCategoryName.Text = string.Empty;
             chkIsActive.Checked = false;
             hdnId.Value = "0";
             btnAddOrUpdate.Text = "Add";
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            clear();
         }
     }
 }
