@@ -31,6 +31,24 @@
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="../Admin_TemplateFiles/css/style.css">
     <link rel="stylesheet" type="text/css" href="../Admin_TemplateFiles/css/jquery.mCustomScrollbar.css">
+
+        <script>
+            $(function () {
+
+                // This willl get the full url from address bar
+                var url = window.location.href;
+
+                //Passes on every a tag
+
+                $("#navbarSupportedContent a").each(function () {
+
+                    if (url == (this.href)) {
+                        $(this).closest("li").addClass("active");
+                    }
+                });
+            });
+        </script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -134,7 +152,7 @@
                     <div class="pcoded-wrapper">
                         <nav class="pcoded-navbar">
                             <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
-                            <div class="pcoded-inner-navbar main-menu">
+                            <div class="pcoded-inner-navbar main-menu" id="navbarSupportedContent">
 
 
                                 <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Overview</div>
@@ -236,9 +254,9 @@
                                                     <i class="icofont icofont-home"></i>
                                                 </a>
                                             </li>
-                                            <li class="breadcrumb-item"><a href="#!">Breadcrumb</a>
+                                            <li class="breadcrumb-item"><a href="Dashboard.aspx">Dashboard</a>
                                             </li>
-                                            <li class="breadcrumb-item"><a href="#!">Caption Breadcrumb</a>
+                                            <li class="breadcrumb-item"><a href="#!"><% Response.Write(Session["breadCrum"]); %></a>
                                             </li>
                                         </ul>
                                     </div>

@@ -16,15 +16,20 @@ namespace Foodie.Admin
         SqlCommand cmd;
         SqlDataAdapter sda;
         DataTable dt;
-            
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                Session["breadCrum"] = "Category";
+                getCategories();
+            }
+            lblMsg.Visible = false;
         }
 
         protected void btnAddOrUpdate_Click(object sender, EventArgs e)
         {
-           
+
             string actionName = string.Empty, imagePath = string.Empty, fileExtension = string.Empty;
             bool isValidToExecute = false;
             int categoryId = Convert.ToInt32(hdnId.Value);
@@ -58,7 +63,7 @@ namespace Foodie.Admin
                     lblMsg.CssClass = "alert alert-danger";
                     isValidToExecute = false;
                 }
-            
+
             }
             else
             {
@@ -101,15 +106,15 @@ namespace Foodie.Admin
 
         private void getCategories()
         {
-            con =  new SqlConnection(Connection.GetConnectionString());
+            con = new SqlConnection(Connection.GetConnectionString());
             cmd = new SqlCommand("Category_Crud", con);
-            cmd.Parameters.AddWithValue("@Action","SELECT");
+            cmd.Parameters.AddWithValue("@Action", "SELECT");
             cmd.CommandType = CommandType.StoredProcedure;
             sda = new SqlDataAdapter(cmd);
             dt = new DataTable();
             sda.Fill(dt);
-         //   rCategory.DataSource = dt;
-         //   rCategory.DataBind();
+            rCategory.DataSource = dt;
+            rCategory.DataBind();
 
 
         }

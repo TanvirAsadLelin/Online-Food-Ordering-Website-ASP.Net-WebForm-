@@ -7,9 +7,9 @@
             var seconds = 5;
             setTimeout(function () {
                 document.getElementById("<%=lblMsg.ClientID %>").style.display = "none";
-        }, seconds * 1000);
+            }, seconds * 1000);
         };
-    </script> 
+    </script>
 
 
     <script>
@@ -78,6 +78,39 @@
 
                                                 <div>
                                                     <asp:Image ID="imgCategory" runat="server" CssClass="img-thumbnail" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6 col-md-8 col-lg-8">
+                                            <h4 class="sub-title">Category List</h4>
+
+                                            <div class="card-block table-border-style">
+                                                <div class="table-responsive">
+                                                    <asp:Repeater ID="rCategory" runat="server">
+                                                        <HeaderTemplate>
+                                                            <table>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>Image</th>
+                                                                    <th>IsActive</th>
+                                                                    <th>Create Date</th>
+                                                                    <th>Action</th>
+                                                                </tr>
+                                                            </table>
+                                                        </HeaderTemplate>
+
+                                                        <ItemTemplate>
+                                                            <tr>
+                                                                <td><%# Eval("Name") %></td>
+                                                                <td><%# Eval("ImageUrl") %></td>
+                                                                <td><%# Eval("IsActive") %></td>
+                                                                <td><%# Eval("CreateDate") %></td>
+                                                                <td></td>
+                                                               
+                                                            </tr>
+                                                        </ItemTemplate>
+                                                    </asp:Repeater>
                                                 </div>
                                             </div>
                                         </div>
