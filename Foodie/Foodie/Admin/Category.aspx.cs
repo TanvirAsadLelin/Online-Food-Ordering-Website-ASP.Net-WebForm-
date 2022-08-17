@@ -76,7 +76,7 @@ namespace Foodie.Admin
                     actionName = categoryId == 0 ? "inserted" : "updated";
 
                     lblMsg.Visible = true;
-                    lblMsg.Text = "Category " + actionName + "successfully!";
+                    lblMsg.Text = "Category " + actionName + " successfully!";
                     lblMsg.CssClass = "alert alert-success";
                     //getCategories();
                     clear();
