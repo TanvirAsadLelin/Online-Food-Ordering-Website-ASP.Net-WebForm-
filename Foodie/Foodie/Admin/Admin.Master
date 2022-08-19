@@ -32,6 +32,17 @@
     <link rel="stylesheet" type="text/css" href="../Admin_TemplateFiles/css/style.css">
     <link rel="stylesheet" type="text/css" href="../Admin_TemplateFiles/css/jquery.mCustomScrollbar.css">
 
+    <%--Datatable Style.css--%>
+     <link rel="stylesheet" type="text/css" href="../Admin_TemplateFiles/DataTables/css/dataTables.bootstrap4.min.css">
+     <link rel="stylesheet" type="text/css" href="../Admin_TemplateFiles/DataTables/css/responsive.bootstrap4.min.css">
+     <link rel="stylesheet" type="text/css" href="../Admin_TemplateFiles/DataTables/css/icon-font.min.css">
+
+      <!-- Required Jquery -->
+    <script type="text/javascript" src="../Admin_TemplateFiles/js/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../Admin_TemplateFiles/js/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../Admin_TemplateFiles/js/popper.js/popper.min.js"></script>
+    <script type="text/javascript" src="../Admin_TemplateFiles/js/bootstrap/js/bootstrap.min.js"></script>
+
         <script>
             $(function () {
 
@@ -157,7 +168,7 @@
 
                                 <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Overview</div>
                                 <ul class="pcoded-item pcoded-left-item">
-                                    <li class="active">
+                                    <li>
                                         <a href="Dashboard.aspx">
                                             <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                                             <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
@@ -274,11 +285,7 @@
 
 
     </form>
-    <!-- Required Jquery -->
-    <script type="text/javascript" src="../Admin_TemplateFiles/js/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="../Admin_TemplateFiles/js/jquery-ui/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="../Admin_TemplateFiles/js/popper.js/popper.min.js"></script>
-    <script type="text/javascript" src="../Admin_TemplateFiles/js/bootstrap/js/bootstrap.min.js"></script>
+  
     <!-- jquery slimscroll js -->
     <script type="text/javascript" src="../Admin_TemplateFiles/js/jquery-slimscroll/jquery.slimscroll.js"></script>
     <!-- modernizr js -->
@@ -307,6 +314,19 @@
             }
         });
     </script>
+
+    <script src="../Admin_TemplateFiles/DataTables/js/buttons.bootstrap4.min.js"></script>
+    <script src="../Admin_TemplateFiles/DataTables/js/buttons.flash.min.js"></script>
+    <script src="../Admin_TemplateFiles/DataTables/js/buttons.html5.min.js"></script>
+    <script src="../Admin_TemplateFiles/DataTables/js/buttons.print.min.js"></script>
+    <script src="../Admin_TemplateFiles/DataTables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../Admin_TemplateFiles/DataTables/js/dataTables.buttons.min.js"></script>
+    <script src="../Admin_TemplateFiles/DataTables/js/dataTables.responsive.min.js"></script>
+    <script src="../Admin_TemplateFiles/DataTables/js/jquery.dataTables.min.js"></script>
+    <script src="../Admin_TemplateFiles/DataTables/js/jszip.min.js"></script>
+    <script src="../Admin_TemplateFiles/DataTables/js/pdfmake.min.js"></script>
+    <script src="../Admin_TemplateFiles/DataTables/js/responsive.bootstrap4.min.js"></script>
+    <script src="../Admin_TemplateFiles/DataTables/js/vfs_fonts.js"></script>
 
 </body>
 </html>
