@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="Category.aspx.cs" Inherits="Foodie.Admin.Category" %>
 <%@ Import Namespace="Foodie" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
     <script type="text/javascript">  
         window.onload = function () {
             var seconds = 5;
