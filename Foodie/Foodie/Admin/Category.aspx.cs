@@ -125,7 +125,7 @@ namespace Foodie.Admin
             chkIsActive.Checked = false;
             hdnId.Value = "0";
             btnAddOrUpdate.Text = "Add";
-            imgCategory.Visible = false;
+            imgCategory.ImageUrl = String.Empty;
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
@@ -191,7 +191,21 @@ namespace Foodie.Admin
 
         protected void rCategory_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
+            if(e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                Label lblActive = e.Item.FindControl("lblIsActive") as Label;
 
+                if(lblActive.Text == "True")
+                {
+                    lblActive.Text = "Active";
+                    lblActive.CssClass = "badge badge-success";
+                }
+                else
+                {
+                    lblActive.Text = "In-Active";
+                    lblActive.CssClass = "badge badge-danger";
+                }
+            }
         }
     }
 }
