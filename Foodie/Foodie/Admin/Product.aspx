@@ -81,7 +81,21 @@
                                                             ControlToValidate="txtProductPrice"></asp:RequiredFieldValidator>
                                                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
                                                             ErrorMessage="Price must be in decimal." ForeColor="Red" Display="Dynamic" SetFocusOnError="true" 
-                                                            ControlToValidate="txtProductPrice" ValidationExpression="^(\d+(\.\d+)?)$"></asp:RegularExpressionValidator>
+                                                            ControlToValidate="txtProductPrice" ValidationExpression="^\d{0,8}(\.\d{1,4})?$"></asp:RegularExpressionValidator>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Product Quantity</label>
+                                                    <div>
+                                                        <asp:TextBox ID="txtProductQuantity" runat="server" CssClass="form-control"
+                                                            placeholder="Enter Product Quantity"></asp:TextBox>
+                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+                                                            ErrorMessage="Quantity is requried" ForeColor="Red" Display="Dynamic" SetFocusOnError="true" 
+                                                            ControlToValidate="txtProductQuantity"></asp:RequiredFieldValidator>
+                                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
+                                                            ErrorMessage="Quantity must be non negative." ForeColor="Red" Display="Dynamic" SetFocusOnError="true" 
+                                                            ControlToValidate="txtProductQuantity" ValidationExpression="^([1-9]\d*|0)$"></asp:RegularExpressionValidator>
                                                     </div>
                                                 </div>
 
@@ -92,6 +106,23 @@
                                                             onchange="ImagePreview(this);" />
                                                     </div>
                                                 </div>
+
+                                                    <div class="form-group">
+                                                    <label>Product Category</label>
+                                                    <div>
+                                                        
+                                                        <asp:DropDownList ID="ddlProductCategory" runat="server" CssClass="form-control" 
+                                                            DataSourceID="SqlDataSourceForCategory" DataTextField="Name" DataValueField="CategoryId" 
+                                                            AppendDataBoundItems="true">
+                                                            <asp:ListItem Value="0">Select Category</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
+                                                            ErrorMessage="Category is requried" ForeColor="Red" Display="Dynamic" SetFocusOnError="true" 
+                                                            ControlToValidate="ddlProductCategory" InitialValue="0"></asp:RequiredFieldValidator>
+                                                            <asp:SqlDataSource ID="SqlDataSourceForCategory" runat="server" ConnectionString="<%$ ConnectionStrings:cs %>" SelectCommand="SELECT [Name], [CategoryId] FROM [Categories]"></asp:SqlDataSource>
+                                                    </div>
+                                                </div>
+
                                                 <div class="form-check pl-4">
                                                     <asp:CheckBox ID="chkIsActive" runat="server" Text="&nbsp; IsActive"
                                                         CssClass="form-check-input" />

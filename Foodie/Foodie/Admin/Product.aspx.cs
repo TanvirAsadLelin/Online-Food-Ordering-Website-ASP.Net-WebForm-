@@ -19,7 +19,12 @@ namespace Foodie.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!IsPostBack)
+            {
+                Session["breadCrum"] = "Product";
+                // getCategories();
+            }
+            lblMsg.Visible = false;
         }
 
         protected void btnAddOrUpdate_Click(object sender, EventArgs e)
@@ -36,7 +41,15 @@ namespace Foodie.Admin
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
-            
+            Clear(); 
+        }
+
+        private void Clear()
+        {
+            txtProductName.Text = string.Empty;
+            chkIsActive.Checked = false;
+            hdnId.Value = "0";
+            btnAddOrUpdate.Text = "Add";
         }
 
         protected void rProduct_ItemCommand(object source, RepeaterCommandEventArgs e)
