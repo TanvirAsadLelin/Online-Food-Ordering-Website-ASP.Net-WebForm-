@@ -159,7 +159,11 @@
                                                                     <tr>
                                                                         <th class="table-plus">Name</th>
                                                                         <th>Image</th>
+                                                                        <th>Price(BDT)</th>
+                                                                        <th>Qty</th>
+                                                                        <th>Category</th>
                                                                         <th>IsActive</th>
+                                                                        <th>Description</th>
                                                                         <th>Create Date</th>
                                                                         <th class="datatable-nosort">Action</th>
                                                                     </tr>
@@ -170,13 +174,27 @@
                                                         <ItemTemplate>
                                                             <tr>
                                                                 <td class="table-plus"><%# Eval("Name") %></td>
+
                                                                 <td>
                                                                     <img alt="" width="40" src="<%# Utils.GetImageUrl( Eval("ImageUrl")) %>" />
                                                                 </td>
+
+                                                                <td><%# Eval("Price") %></td>
+
+                                                                 <td>
+                                                                    <asp:Label ID="lblQuantity" runat="server" Text='<%# Eval("Quantity") %>'></asp:Label>
+                                                                </td>
+
+                                                                <td><%# Eval("CategoryName") %></td>
+
                                                                 <td>
                                                                     <asp:Label ID="lblIsActive" runat="server" Text='<%# Eval("IsActive") %>'></asp:Label>
                                                                 </td>
+
+                                                                 <td><%# Eval("Description") %></td>
+
                                                                 <td><%# Eval("CreateDate") %></td>
+
                                                                 <td>
                                                                     <asp:LinkButton ID="lnkEdit" runat="server" Text="Edit" CssClass="badge badge-primary"
                                                                         CommandArgument='<%# Eval("ProductId") %>' CommandName="edit">
