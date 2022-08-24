@@ -197,14 +197,14 @@
 
                                                                 <td>
                                                                     <asp:LinkButton ID="lnkEdit" runat="server" Text="Edit" CssClass="badge badge-primary"
-                                                                        CommandArgument='<%# Eval("ProductId") %>' CommandName="edit">
+                                                                        CommandArgument='<%# Eval("ProductId") %>' CommandName="edit" CausesValidation="false">
                                                                         <i class="ti-pencil"></i>
 
                                                                     </asp:LinkButton>
 
                                                                     <asp:LinkButton ID="lnkDelete" runat="server" Text="Delete" CssClass="badge bg-danger"
                                                                         CommandArgument='<%# Eval("ProductId") %>' CommandName="delete"
-                                                                        OnClientClick="return confirm('Do you want to delete this Product?');">
+                                                                        OnClientClick="return confirm('Do you want to delete this Product?');" CausesValidation="false">
                                                                         <i class="ti-trash"></i>
 
                                                                     </asp:LinkButton>
