@@ -113,17 +113,24 @@
 
 
                         <div>
-                            <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control"
-                                placeholder="Enter mobile number" ToolTip="Mobile number"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
-                                ErrorMessage="Mobile number is requried" ForeColor="Red" Display="Dynamic" SetFocusOnError="true"
-                                ControlToValidate="txtMobile"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server"
-                                ErrorMessage="Mobile number must have 11 digits." ForeColor="Red" Display="Dynamic" SetFocusOnError="true"
-                                ControlToValidate="txtMobile" ValidationExpression="^[0-9]{11}$"></asp:RegularExpressionValidator>
+                            <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control"
+                                placeholder="Enter mobile number" ToolTip="Mobile number" TextMode="Password"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfvPassword" runat="server"
+                                ErrorMessage="Password is requried" ForeColor="Red" Display="Dynamic" SetFocusOnError="true"
+                                ControlToValidate="txtPassword"></asp:RequiredFieldValidator>
+                            
                         </div>
                     </div>
+
                 </div>
+
+                <div class="row pl-4">
+                    <div class="btn-box">
+                        <asp:Button ID="btnRegister" runat="server" Text="Register" CssClass="btn btn-success rounded-pill pl-4 pr-4 text-white" />
+                        <asp:Label ID="lblAleradyUser" runat="server" CssClass="pl-3 text-black-100" 
+                            Text="Already registered?<a href='Login.aspx' class='badge badge-info'>Login here..</a>"></asp:Label>
+                    </div>
+                </div>    
             </div>
         </div>
     </section>
