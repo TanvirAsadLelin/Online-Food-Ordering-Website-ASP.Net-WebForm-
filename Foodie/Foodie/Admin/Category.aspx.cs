@@ -35,7 +35,7 @@ namespace Foodie.Admin
             int categoryId = Convert.ToInt32(hdnId.Value);
             con = new SqlConnection(Connection.GetConnectionString());
 
-            cmd = new SqlCommand("Category_Crud", con);
+            cmd = new SqlCommand("Categories_Crud", con);
             cmd.Parameters.AddWithValue("@Action", categoryId == 0 ? "INSERT" : "UPDATE");
             cmd.Parameters.AddWithValue("@CategoryId", categoryId);
             cmd.Parameters.AddWithValue("@Name", txtCategoryName.Text.Trim());
@@ -107,7 +107,7 @@ namespace Foodie.Admin
         private void getCategories()
         {
             con = new SqlConnection(Connection.GetConnectionString());
-            cmd = new SqlCommand("Category_Crud", con);
+            cmd = new SqlCommand("Categories_Crud", con);
             cmd.Parameters.AddWithValue("@Action", "SELECT");
             cmd.CommandType = CommandType.StoredProcedure;
             sda = new SqlDataAdapter(cmd);
@@ -140,7 +140,7 @@ namespace Foodie.Admin
             if (e.CommandName == "edit")
             {
                // con = new SqlConnection(Connection.GetConnectionString());
-                cmd = new SqlCommand("Category_Crud",con);
+                cmd = new SqlCommand("Categories_Crud", con);
                 cmd.Parameters.AddWithValue("@Action", "GETBYID");
                 cmd.Parameters.AddWithValue("@CategoryId", e.CommandArgument);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -162,7 +162,7 @@ namespace Foodie.Admin
             else if (e.CommandName =="delete")
             {
                 //con = new SqlConnection(Connection.GetConnectionString());
-                cmd = new SqlCommand("Category_Crud", con);
+                cmd = new SqlCommand("Categories_Crud", con);
                 cmd.Parameters.AddWithValue("@Action", "delete");
                 cmd.Parameters.AddWithValue("@CategoryId", e.CommandArgument);
                 cmd.CommandType = CommandType.StoredProcedure;
