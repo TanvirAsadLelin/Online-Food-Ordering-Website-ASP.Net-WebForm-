@@ -18,7 +18,7 @@
     <meta name="author" content="" />
     <link rel="shortcut icon" href="../TemplateFiles/images/favicon.png" type="">
 
-    <title>Feane </title>
+    <title>ভোজনরসিক </title>
 
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="../TemplateFiles/css/bootstrap.css" />
@@ -70,7 +70,7 @@
                 <div class="container">
                     <nav class="navbar navbar-expand-lg custom_nav-container ">
                         <a class="navbar-brand" href="Default.aspx">
-                            <span>Feane
+                            <span>ভোজনরসিক
                             </span>
                         </a>
 
@@ -205,7 +205,7 @@
                     </div>
                     <div class="col-md-4 footer-col">
                         <div class="footer_detail">
-                            <a href="" class="footer-logo">Feane
+                            <a href="" class="footer-logo">ভোজনরসিক
                             </a>
                             <p>
                                 Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
