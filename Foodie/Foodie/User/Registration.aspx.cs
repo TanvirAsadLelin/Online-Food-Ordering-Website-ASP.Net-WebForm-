@@ -19,7 +19,17 @@ namespace Foodie.User
         DataTable dt;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["id"] != null ) /*&& Session["userId"] != null*/
+                {
+                    getUserDetails();
+                }
+                else if(Session["userId"] != null)
+                {
+                    Response.Redirect("Default.aspx");
+                }
+            }
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
@@ -135,9 +145,18 @@ namespace Foodie.User
                 txtEmail.Text = dt.Rows[0]["Email"].ToString();
                 txtAddress.Text = dt.Rows[0]["Address"].ToString();
                 txtPostCode.Text = dt.Rows[0]["PostCode"].ToString();
-                imgUserImage.ImageUrl = String.IsNullOrEmpty(dt.Rows[0]["ImageUrl"].ToString())?
-                    "../Images/"
+                imgUserImage.ImageUrl = String.IsNullOrEmpty(dt.Rows[0]["ImageUrl"].ToString()) ?
+                    "../Images/No_image.png" : "../" + dt.Rows[0]["ImageUrl"].ToString();
+                imgUserImage.Height = 200;
+                imgUserImage.Width = 200;
+                txtPassword.TextMode = TextBoxMode.SingleLine;
+                txtPassword.ReadOnly = true;
+                txtPassword.Text = dt.Rows[0]["Password"].ToString();
             }
+
+            lblHeaderMsg.Text = "<h2>Edit profile </h2>";
+            btnRegister.Text = "Update";
+            lblAleradyUser.Text = "";
 
         }
         private void Clear()
