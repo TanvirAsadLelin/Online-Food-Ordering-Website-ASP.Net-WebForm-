@@ -31,8 +31,8 @@
                                     <div class="row">
                                     
 
-                                        <div class="col-sm-6 col-md-8 col-lg-8">
-                                            <h4 class="sub-title">Category List</h4>
+                                        <div class="col-12 mobile-inputs">
+                                            <h4 class="sub-title">User List</h4>
 
                                             <div class="card-block table-border-style">
                                                 <div class="table-responsive">
