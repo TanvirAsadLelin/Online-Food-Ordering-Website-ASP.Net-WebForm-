@@ -117,6 +117,29 @@ namespace Foodie.User
 
         }
 
+        void getUserDetails()
+        {
+            con = new SqlConnection(Connection.GetConnectionString());
+            cmd = new SqlCommand("User_Crud", con);
+            cmd.Parameters.AddWithValue("@Action", "SELECT4PROFILE");
+            cmd.Parameters.AddWithValue("@UserId", Request.QueryString["id"]);
+            cmd.CommandType = CommandType.StoredProcedure;
+            sda = new SqlDataAdapter(cmd);
+            dt = new DataTable();
+            sda.Fill(dt);
+            if(dt.Rows.Count == 1)
+            {
+                txtFullName.Text = dt.Rows[0]["Name"].ToString();
+                txtUserName.Text = dt.Rows[0]["Username"].ToString();
+                txtMobile.Text = dt.Rows[0]["Mobile"].ToString();
+                txtEmail.Text = dt.Rows[0]["Email"].ToString();
+                txtAddress.Text = dt.Rows[0]["Address"].ToString();
+                txtPostCode.Text = dt.Rows[0]["PostCode"].ToString();
+                imgUserImage.ImageUrl = String.IsNullOrEmpty(dt.Rows[0]["ImageUrl"].ToString())?
+                    "../Images/"
+            }
+
+        }
         private void Clear()
         {
             txtFullName.Text = String.Empty;
