@@ -33,33 +33,33 @@
     <link rel="stylesheet" type="text/css" href="../Admin_TemplateFiles/css/jquery.mCustomScrollbar.css">
 
     <%--Datatable Style.css--%>
-     <link rel="stylesheet" type="text/css" href="../Admin_TemplateFiles/DataTables/css/dataTables.bootstrap4.min.css">
-     <link rel="stylesheet" type="text/css" href="../Admin_TemplateFiles/DataTables/css/responsive.bootstrap4.min.css">
-     <link rel="stylesheet" type="text/css" href="../Admin_TemplateFiles/DataTables/css/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="../Admin_TemplateFiles/DataTables/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="../Admin_TemplateFiles/DataTables/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="../Admin_TemplateFiles/DataTables/css/icon-font.min.css">
 
-      <!-- Required Jquery -->
+    <!-- Required Jquery -->
     <script type="text/javascript" src="../Admin_TemplateFiles/js/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="../Admin_TemplateFiles/js/jquery-ui/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../Admin_TemplateFiles/js/popper.js/popper.min.js"></script>
     <script type="text/javascript" src="../Admin_TemplateFiles/js/bootstrap/js/bootstrap.min.js"></script>
-    
 
-        <script>
-            $(function () {
 
-                // This willl get the full url from address bar
-                var url = window.location.href;
+    <script>
+        $(function () {
 
-                //Passes on every a tag
+            // This willl get the full url from address bar
+            var url = window.location.href;
 
-                $("#navbarSupportedContent a").each(function () {
+            //Passes on every a tag
 
-                    if (url == (this.href)) {
-                        $(this).closest("li").addClass("active");
-                    }
-                });
+            $("#navbarSupportedContent a").each(function () {
+
+                if (url == (this.href)) {
+                    $(this).closest("li").addClass("active");
+                }
             });
-        </script>
+        });
+    </script>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -144,15 +144,18 @@
                                 <li class="user-profile header-notification">
                                     <a href="#!">
                                         <img src="../Admin_TemplateFiles/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
-                                        <span>John Doe</span>
+                                        <span>Admin</span>
                                         <i class="ti-angle-down"></i>
                                     </a>
                                     <ul class="show-notification profile-notification">
 
                                         <li>
-                                            <a href="auth-normal-sign-in.html">
+                                            <%--<a href="auth-normal-sign-in.html">
                                                 <i class="ti-layout-sidebar-left"></i>Logout
-                                            </a>
+                                            </a>--%>
+                                            <asp:LinkButton ID="lnkLogout" runat="server" CausesValidation="false" OnClick="lnkLogout_Click">
+                                             <i class="ti-layout-sidebar-left"></i>Logout
+                                            </asp:LinkButton>
                                         </li>
                                     </ul>
                                 </li>
@@ -258,7 +261,7 @@
                             <!-- Danger-color Breadcrumb card start -->
                             <div class="card borderless-card">
                                 <div class="card-block danger-breadcrumb">
-                                  
+
                                     <div class="page-header-breadcrumb">
                                         <ul class="breadcrumb-title">
                                             <li class="breadcrumb-item">
@@ -286,7 +289,7 @@
 
 
     </form>
-  
+
     <!-- jquery slimscroll js -->
     <script type="text/javascript" src="../Admin_TemplateFiles/js/jquery-slimscroll/jquery.slimscroll.js"></script>
     <!-- modernizr js -->
