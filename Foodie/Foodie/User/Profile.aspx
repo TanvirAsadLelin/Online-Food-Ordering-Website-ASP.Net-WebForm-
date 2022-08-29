@@ -88,7 +88,7 @@
 
 
                                     <div class="tab-content ml-1" id="myTabContent">
-                                        <%-- Basic user info--%>
+                                        <%-- Basic user info start--%>
                                         <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
                                             <asp:Repeater ID="rUserProfile" runat="server">
                                                 <ItemTemplate>
@@ -98,7 +98,6 @@
                                                         </div>
                                                         <div class="col-md-8 col-6">
                                                             <%# Eval("Name") %>
-                                           
                                                         </div>
                                                     </div>
                                                     <hr />
@@ -109,7 +108,6 @@
                                                         </div>
                                                         <div class="col-md-8 col-6">
                                                             <%# Eval("Username") %>
-                                           
                                                         </div>
                                                     </div>
                                                     <hr />
@@ -121,7 +119,6 @@
                                                         </div>
                                                         <div class="col-md-8 col-6">
                                                             <%# Eval("Mobile") %>
-                                           
                                                         </div>
                                                     </div>
                                                     <hr />
@@ -130,8 +127,7 @@
                                                             <label style="font-weight: bold;">Email</label>
                                                         </div>
                                                         <div class="col-md-8 col-6">
-                                                             <%# Eval("Email") %>
-                                           
+                                                            <%# Eval("Email") %>
                                                         </div>
                                                     </div>
                                                     <hr />
@@ -140,28 +136,31 @@
                                                             <label style="font-weight: bold;">Post Code</label>
                                                         </div>
                                                         <div class="col-md-8 col-6">
-                                                           <%# Eval("PostCode") %>
-                                           
+                                                            <%# Eval("PostCode") %>
                                                         </div>
                                                     </div>
                                                     <hr />
 
-                                                      <div class="row">
+                                                    <div class="row">
                                                         <div class="col-sm-3 col-md-2 col-5">
                                                             <label style="font-weight: bold;">Address</label>
                                                         </div>
                                                         <div class="col-md-8 col-6">
                                                             <%# Eval("Address") %>
-                                           
                                                         </div>
                                                     </div>
                                                     <hr />
                                                 </ItemTemplate>
                                             </asp:Repeater>
                                         </div>
+                                         <%-- Basic user info end--%>
+
+                                      <%--  Order History starts--%>
+                                        <div class="tab-pane fade" id="connectedServices" role="tabpanel" aria-labelledby="connectedServices-tab">
 
 
-
+                                        </div>
+                                           <%--  Order History End--%>
                                     </div>
                                 </div>
                             </div>

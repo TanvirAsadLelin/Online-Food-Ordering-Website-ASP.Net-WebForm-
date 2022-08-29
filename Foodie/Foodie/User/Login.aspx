@@ -39,7 +39,7 @@
                           
                       <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ErrorMessage="Password is requried" ForeColor="Red" 
                        ControlToValidate="txtPassword" Display="Dynamic" SetFocusOnError="true" Font-Size="Small"></asp:RequiredFieldValidator>
-                          <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" placeholder="Enter Password"></asp:TextBox>
+                          <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Enter Password"></asp:TextBox>
                       </div>
 
                       <div class="btn-box">
