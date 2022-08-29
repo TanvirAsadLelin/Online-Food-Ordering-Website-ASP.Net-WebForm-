@@ -94,7 +94,7 @@
                                 </li>
                             </ul>
                             <div class="user_option">
-                                <asp:LinkButton ID="lnkRegisterOrProfile" runat="server" CssClass="user_link">
+                                <asp:LinkButton ID="lnkRegisterOrProfile" runat="server" CssClass="user_link" OnClick="lnkRegisterOrProfile_Click" CausesValidation="false">
                                     <i class="fa fa-user" aria-hidden="true"></i>
                                 </asp:LinkButton>
                               <%--  <a href="" class="user_link">

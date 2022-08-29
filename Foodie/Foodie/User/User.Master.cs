@@ -50,5 +50,19 @@ namespace Foodie.User
                 Response.Redirect("Login.aspx");
             }
         }
+
+        protected void lnkRegisterOrProfile_Click(object sender, EventArgs e)
+        {
+            if (Session["userId"] != null)
+            {
+                lnkRegisterOrProfile.ToolTip = "User Profile";
+                Response.Redirect("Profile.aspx");
+            }
+            else
+            {
+                lnkRegisterOrProfile.ToolTip = "User Registration";
+                Response.Redirect("Registration.aspx");
+            }
+        }
     }
 }

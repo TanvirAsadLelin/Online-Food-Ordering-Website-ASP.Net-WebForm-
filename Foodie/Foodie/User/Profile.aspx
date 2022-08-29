@@ -26,7 +26,7 @@
                                             class="img-thumbnail" />
 
                                         <div class="middle pt-2">
-                                            <a href="Registration.aspx?userId=<%Response.Write(Session["userId"]); %>" class="btn btn-warning">
+                                            <a href="Registration.aspx?id=<% Response.Write(Session["userId"]); %>" class="btn btn-warning">
                                                 <i class="fa fa-pencil"></i>Edit Details
                                             </a>
                                         </div>
@@ -41,7 +41,7 @@
                                         <h6 class="d-block">
                                             <a href="javascript:void(0)">
                                                 <asp:Label ID="lblUsername" runat="server" ToolTip="Unique Username">
-                                             @<% Response.Write(Session["username"]); %>
+                                             <% Response.Write(Session["username"]); %>
                                                 </asp:Label>
 
                                             </a>
@@ -51,7 +51,7 @@
                                         <h6 class="d-block">
                                             <a href="javascript:void(0)">
                                                 <asp:Label ID="lblEmail" runat="server" ToolTip="Unique Email">
-                                             @<% Response.Write(Session["email"]); %>
+                                             <% Response.Write(Session["email"]); %>
                                                 </asp:Label>
 
                                             </a>
@@ -62,7 +62,7 @@
                                         <h6 class="d-block">
                                             <a href="javascript:void(0)">
                                                 <asp:Label ID="lblCreateDate" runat="server" ToolTip="Account Created on">
-                                             @<% Response.Write(Session["createDate"]); %>
+                                             <% Response.Write(Session["createDate"]); %>
                                                 </asp:Label>
 
                                             </a>
@@ -158,7 +158,7 @@
                                       <%--  Order History starts--%>
                                         <div class="tab-pane fade" id="connectedServices" role="tabpanel" aria-labelledby="connectedServices-tab">
 
-
+                                            <h2>Order History</h2>
                                         </div>
                                            <%--  Order History End--%>
                                     </div>
