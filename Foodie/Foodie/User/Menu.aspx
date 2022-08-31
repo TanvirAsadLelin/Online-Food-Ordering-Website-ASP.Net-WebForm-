@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/User.Master" AutoEventWireup="true" CodeBehind="Menu.aspx.cs" Inherits="Foodie.User.Menu" %>
+
 <%@ Import Namespace="Foodie" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -14,10 +15,16 @@
 
             <ul class="filters_menu">
                 <li class="active" data-filter="*">All</li>
-                <li data-filter=".burger">Burger</li>
-                <li data-filter=".pizza">Pizza</li>
-                <li data-filter=".pasta">Pasta</li>
-                <li data-filter=".fries">Fries</li>
+                <asp:Repeater ID="rCategoriesMenu" runat="server">
+                    <ItemTemplate>
+                        <li data-filter=".<%# Eval("Name").ToString().ToLower() %>">
+                            <%# Eval("Name") %>
+                        </li>
+                    </ItemTemplate>
+
+                </asp:Repeater>
+
+
             </ul>
 
             <div class="filters-content">
@@ -25,7 +32,7 @@
 
                     <asp:Repeater ID="rProductsMenu" runat="server">
                         <ItemTemplate>
-                            <div class="col-sm-6 col-lg-4 all pizza">
+                            <div class="col-sm-6 col-lg-4 all <%# Eval("Name").ToString().ToLower() %>">
                                 <div class="box">
                                     <div>
                                         <div class="img-box">
@@ -40,7 +47,7 @@
                                             <div class="options">
                                                 <h6><%# Eval("Price") %>
                                                 </h6>
-                                                <asp:Linkbutton ID="lnkAddToCart" runat="server" CommandName="addToCart" 
+                                                <asp:LinkButton ID="lnkAddToCart" runat="server" CommandName="addToCart"
                                                     CommandArgument='<%# Eval("ProductId") %>'>
                                                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background: new 0 0 456.029 456.029;" xml:space="preserve">
                                                         <g>
@@ -94,7 +101,7 @@
                                                         <g>
                                                         </g>
                                                     </svg>
-                                                </asp:Linkbutton>
+                                                </asp:LinkButton>
                                             </div>
                                         </div>
                                     </div>

@@ -17,23 +17,27 @@ namespace Foodie.User
         DataTable dt;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                getCategories();
+                getProducts();
+            }
         }
 
-        //private void getCategories()
-        //{
-        //    con = new SqlConnection(Connection.GetConnectionString());
-        //    cmd = new SqlCommand("Categories_Crud", con);
-        //    cmd.Parameters.AddWithValue("@Action", "SELECT");
-        //    cmd.CommandType = CommandType.StoredProcedure;
-        //    sda = new SqlDataAdapter(cmd);
-        //    dt = new DataTable();
-        //    sda.Fill(dt);
-        //    rCategory.DataSource = dt;
-        //    rCategory.DataBind();
+        private void getCategories()
+        {
+            con = new SqlConnection(Connection.GetConnectionString());
+            cmd = new SqlCommand("Categories_Crud", con);
+            cmd.Parameters.AddWithValue("@Action", "ACTIVECATEGORY");
+            cmd.CommandType = CommandType.StoredProcedure;
+            sda = new SqlDataAdapter(cmd);
+            dt = new DataTable();
+            sda.Fill(dt);
+            rCategoriesMenu.DataSource = dt;
+            rCategoriesMenu.DataBind();
 
 
-        //}
+        }
 
 
         private void getProducts()
