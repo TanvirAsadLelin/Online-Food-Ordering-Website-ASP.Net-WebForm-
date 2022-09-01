@@ -17,7 +17,7 @@
                 <li class="active" data-filter="*">All</li>
                 <asp:Repeater ID="rCategoriesMenu" runat="server">
                     <ItemTemplate>
-                        <li data-filter=".<%# Eval("Name").ToString().ToLower() %>">
+                        <li data-filter=".<%# Regex.Replace(Eval("Name").ToString().ToLower(),@"\s+","") %>">
                             <%# Eval("Name") %>
                         </li>
                     </ItemTemplate>
@@ -32,7 +32,7 @@
 
                     <asp:Repeater ID="rProductsMenu" runat="server">
                         <ItemTemplate>
-                            <div class="col-sm-6 col-lg-4 all <%# Eval("Name").ToString().ToLower() %>">
+                            <div class="col-sm-6 col-lg-4 all <%# Eval("CategoryName").ToString().ToLower() %>">
                                 <div class="box">
                                     <div>
                                         <div class="img-box">
