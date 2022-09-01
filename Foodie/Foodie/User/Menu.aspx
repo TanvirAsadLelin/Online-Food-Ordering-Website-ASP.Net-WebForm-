@@ -32,7 +32,7 @@
 
                     <asp:Repeater ID="rProductsMenu" runat="server">
                         <ItemTemplate>
-                            <div class="col-sm-6 col-lg-4 all <%# Eval("CategoryName").ToString().ToLower() %>">
+                            <div class="col-sm-6 col-lg-4 all <%# Regex.Replace(Eval("CategoryName").ToString().ToLower(),@"\s+","") %>">
                                 <div class="box">
                                     <div>
                                         <div class="img-box">
