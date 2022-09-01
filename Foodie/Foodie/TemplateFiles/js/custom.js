@@ -32,7 +32,7 @@ $(window).on('load', function () {
 
         // Read a page's GET Url variables & return then as an associative array
         function getUrlVars() {
-            var vars[], hash;
+            var vars=[], hash;
             var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
             for (var i = 0; i < hashes.length; i++) {
                 hash = hashes[i].split('=');

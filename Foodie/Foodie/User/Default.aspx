@@ -23,7 +23,7 @@
                                       
                                     </div>
                                     <div class="detail-box">
-                                        <h5>Tasty Thursdays
+                                        <h5><%# Eval("Name") %>
                                         </h5>
                                         <h6>
                                             <span>20%</span> Off

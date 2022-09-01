@@ -14,10 +14,12 @@
             </div>
 
             <ul class="filters_menu">
-                <li class="active" data-filter="*">All</li>
+                <li class="active" data-filter="*" data-id="0">All</li>
                 <asp:Repeater ID="rCategoriesMenu" runat="server">
                     <ItemTemplate>
-                        <li data-filter=".<%# Regex.Replace(Eval("Name").ToString().ToLower(),@"\s+","") %>">
+                        <li data-filter=".<%# Regex.Replace(Eval("Name").ToString().ToLower(),@"\s+","") %>"
+                            
+                            data-id="<%# Eval("CategoryId") %>">
                             <%# Eval("Name") %>
                         </li>
                     </ItemTemplate>
