@@ -66,5 +66,17 @@ namespace Foodie.User
                 Response.Redirect("Login.aspx");
             }
         }
+
+        int isItemExistInCart(int productId)
+        {
+
+            con = new SqlConnection(Connection.GetConnectionString());
+            cmd = new SqlCommand("Cart_Crud", con);
+            cmd.Parameters.AddWithValue("@Action", "ACTIVEPRODUCT");
+            cmd.CommandType = CommandType.StoredProcedure;
+            sda = new SqlDataAdapter(cmd);
+            dt = new DataTable();
+            sda.Fill(dt);
+        }
     }
 }
