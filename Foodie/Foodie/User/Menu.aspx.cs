@@ -54,5 +54,17 @@ namespace Foodie.User
 
 
         }
+
+        protected void rProductsMenu_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (Session["userId"] != null)
+            {
+
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
+        }
     }
 }
