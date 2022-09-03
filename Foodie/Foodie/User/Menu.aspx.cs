@@ -85,6 +85,8 @@ namespace Foodie.User
             {
                 quantity = Convert.ToInt32(dt.Rows[0]["Quantity"]);
             }
+
+            return quantity;
         }
     }
 }
