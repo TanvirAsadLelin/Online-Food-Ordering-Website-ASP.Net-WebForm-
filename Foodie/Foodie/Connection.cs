@@ -44,5 +44,35 @@ namespace Foodie
             }
             return url1;
         }
+
+
+        public bool updateCartQuantity(int quanity, int productId, int userId)
+        {
+           bool isUpdated = false;
+
+            con = new SqlConnection(Connection.GetConnectionString());
+            cmd = new SqlCommand("Cart_Crud", con);
+            cmd.Parameters.AddWithValue("@Action", "UPDATE");
+            cmd.Parameters.AddWithValue("@ProductId", e.CommandArgument);
+            cmd.Parameters.AddWithValue("@Quantity", 1);
+            cmd.Parameters.AddWithValue("@UserId", Session["userId"]);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                Response.Write("<script> alert('Error-" + ex.Message + "');</script>");
+            }
+            finally
+            {
+
+            }
+
+        }
     }
 }
