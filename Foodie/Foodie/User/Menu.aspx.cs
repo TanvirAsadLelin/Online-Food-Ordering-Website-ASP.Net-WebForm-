@@ -72,11 +72,19 @@ namespace Foodie.User
 
             con = new SqlConnection(Connection.GetConnectionString());
             cmd = new SqlCommand("Cart_Crud", con);
-            cmd.Parameters.AddWithValue("@Action", "ACTIVEPRODUCT");
+            cmd.Parameters.AddWithValue("@Action", "GETBYID");
+            cmd.Parameters.AddWithValue("@ProductId", productId);
+            cmd.Parameters.AddWithValue("@UserId", Session["userId"]);
             cmd.CommandType = CommandType.StoredProcedure;
             sda = new SqlDataAdapter(cmd);
             dt = new DataTable();
             sda.Fill(dt);
+
+            int quantity = 0;
+            if(dt.Rows.Count > 0)
+            {
+                quantity = Convert.ToInt32(dt.Rows[0]["Quantity"]);
+            }
         }
     }
 }
