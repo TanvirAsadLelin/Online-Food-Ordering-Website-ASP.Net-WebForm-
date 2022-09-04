@@ -66,17 +66,22 @@ namespace Foodie
             {
                 con.Open();
                 cmd.ExecuteNonQuery();
+                isUpdated = true;
             }
             catch (Exception ex)
             {
-
+                
+                isUpdated = false;
                 System.Web.HttpContext.Current.Response.Write("<script> alert('Error-" + ex.Message + "');</script>");
+           
+                
             }
             finally
             {
                 con.Close();
             }
 
+            return isUpdated;
         }
 
     }
