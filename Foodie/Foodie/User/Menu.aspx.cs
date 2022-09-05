@@ -95,14 +95,15 @@ namespace Foodie.User
                     Utils utils = new Utils();
 
                     isCartItemUpdated = utils.updateCartQuantity(i + 1, Convert.ToInt32(e.CommandArgument), Convert.ToInt32(Session["userId"]));
-                    lblMsg.Visible=true;
-                    lblMsg.Text = "Item added successfully in your cart!";
-
-                    lblMsg.CssClass = "alert alert-success";
-                    Response.AddHeader("REFERSH", "1:URL=Cart.aspx");
+                   
                 
                 }
 
+                lblMsg.Visible = true;
+                lblMsg.Text = "Item added successfully in your cart!";
+
+                lblMsg.CssClass = "alert alert-success";
+                Response.AddHeader("REFERSH", "1:URL=Cart.aspx");
 
             }
             else

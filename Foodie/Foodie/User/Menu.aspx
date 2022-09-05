@@ -2,6 +2,14 @@
 
 <%@ Import Namespace="Foodie" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+     <script type="text/javascript">  
+        window.onload = function () {
+            var seconds = 5;
+            setTimeout(function () {
+                document.getElementById("<%=lblMsg.ClientID %>").style.display = "none";
+            }, seconds * 1000);
+        };
+     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- food section -->
