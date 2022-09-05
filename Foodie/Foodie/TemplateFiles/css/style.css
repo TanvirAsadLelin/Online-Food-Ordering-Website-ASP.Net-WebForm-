@@ -6,6 +6,10 @@ body {
   overflow-x: hidden;
 }
 
+/*Added for product quantity increasing & descreasing start*/
+
+/*Added for product quantity increasing & descreasing end*/
+
 .layout_padding {
   padding: 90px 0;
 }
