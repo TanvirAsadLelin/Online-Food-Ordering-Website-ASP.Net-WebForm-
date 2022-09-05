@@ -7,12 +7,39 @@ body {
 }
 
 /*Added for product quantity increasing & descreasing start*/
-
-/*Added for product quantity increasing & descreasing end*/
-
-.layout_padding {
-  padding: 90px 0;
+.product__details__option {
+    overflow:hidden;
 }
+
+    .product__details__option .quantity{
+
+    }
+
+    .product__details__option .pro-qty {
+
+    }
+
+    .product__details__option .pro-qty .qtybtn {
+
+    }
+
+        .product__details__option .pro-qty .qtybtn.dec {
+
+        }
+
+        .product__details__option .pro-qty .qtybtn.inc {
+
+        }
+
+        .product__details__option .pro-qty input {
+
+
+        }
+
+    /*Added for product quantity increasing & descreasing end*/
+    .layout_padding {
+        padding: 90px 0;
+    }
 
 .layout_padding2 {
   padding: 75px 0;
