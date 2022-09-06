@@ -60,11 +60,28 @@
                                 </div>
                             </div>
                         </td>
+
+                        <td>
+                            <asp:Label ID="lblTotalPrice" runat="server"></asp:Label>
+                        </td>
+
+                        <td>
+                            <asp:LinkButton ID="lnkBtnDelete" runat="server" Text="Remove" 
+                                CommandName="remove" CommandArgument='<%# Eval("ProductId") %>' 
+                                OnClientClick="return confirm('Do you want to remove this item  cart? ');">
+                                <i class="fa fa-close"></i>
+                            </asp:LinkButton>
+                        </td>
                     </tr>
 
 
                 </ItemTemplate>
                 <FooterTemplate>
+                    <tr>
+                        <td>
+
+                        </td>
+                    </tr>
                     </tbody>
                     </table>
                 </FooterTemplate>
