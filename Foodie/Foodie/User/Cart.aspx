@@ -78,7 +78,18 @@
                 </ItemTemplate>
                 <FooterTemplate>
                     <tr>
-                        <td>
+                        <td colspan="3"></td>
+                        <td class="pl-lg-5">
+                            <b>Grand Total:-</b>
+                        </td>
+                        <td>BDT <% Response.Write(Session["grandTotalPrice"]); %></td>
+                        <td></td>
+
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" class="continue__btn">
+                            <a href="Menu.aspx" class="btn btn-info"></a>
 
                         </td>
                     </tr>
