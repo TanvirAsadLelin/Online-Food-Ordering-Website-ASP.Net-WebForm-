@@ -48,6 +48,18 @@
                              <asp:HiddenField ID="hdnQuantity" runat="server" Value='<%# Eval("Qty") %>' />
                              <asp:HiddenField ID="hdnProductQuantity" runat="server" Value='<%# Eval("ProductQty") %>' />
                         </td>
+
+                        <td>
+                            <div class="product__details__option">
+                                <div class="quantity">
+                                    <div class="pro-qty">
+                                        <asp:TextBox ID="txtQuantity" runat="server" TextMode="Number" Text='<%# Eval("Quantity") %>' ></asp:TextBox>
+                                        <asp:RegularExpressionValidator ID="revQuantity" runat="server" ErrorMessage="*" ForeColor="Red" Font-Size="Small"
+                                           ValidationExpression="[1-9]*" ControlToValidate="txtQuantity" Display="Dynamic" SetFocusOnError="true" EnableClientScript="true"></asp:RegularExpressionValidator>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
 
 
