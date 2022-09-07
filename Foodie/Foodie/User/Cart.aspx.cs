@@ -26,7 +26,7 @@ namespace Foodie.User
                 }
                 else
                 {
-                   
+                    getCartItems();
                 }
 
             }
@@ -45,7 +45,8 @@ namespace Foodie.User
             rCartItem.DataSource = dt;
             if (dt.Rows.Count > 0)
             {
-                
+                rCartItem.FooterTemplate = null;
+                rCartItem.FooterTemplate = new CustomTemplate(ListItemType.Footer);
             }
 
             rCartItem.DataBind();
@@ -58,7 +59,19 @@ namespace Foodie.User
 
         protected void rCartItem_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
+            if(e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                Label totalPrice = e.Item.FindControl("lblTotalPrice") as Label;  
+                Label ProductPrice = e.Item.FindControl("lblPrice") as Label;  
+                TextBox quantity = e.Item.FindControl("txtQuantity") as TextBox;
 
+                decimal calTotalPrice = Convert.ToDecimal(ProductPrice.Text)* Convert.ToDecimal(quantity.Text);
+
+                totalPrice.Text =calTotalPrice.ToString();
+                grandTotal += calTotalPrice;
+            }
+
+            Session["grandTotalPrice"] = grandTotal;
         }
 
 

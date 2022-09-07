@@ -17,7 +17,7 @@
         <div class="container">
             <asp:Repeater ID="rCartItem" runat="server" OnItemCommand="rCartItem_ItemCommand" OnItemDataBound="rCartItem_ItemDataBound">
                 <HeaderTemplate>
-                    <table>
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -38,7 +38,7 @@
                         </td>
 
                          <td>
-                            <img width="60" src="<%# Utils.GetImageUrl("ImageUrl") %>" alt=""/>
+                            <img width="60" src='<%# Utils.GetImageUrl(Eval("ImageUrl")) %>' alt=""/>
 
                         </td>
 
@@ -61,7 +61,7 @@
                             </div>
                         </td>
 
-                        <td>
+                        <td>BDT
                             <asp:Label ID="lblTotalPrice" runat="server"></asp:Label>
                         </td>
 
@@ -89,7 +89,7 @@
 
                     <tr>
                         <td colspan="2" class="continue__btn">
-                            <a href="Menu.aspx" class="btn btn-info"> <i class="fa fa-arrow-circle-left mr-2">Continue Shopping</i> </a>
+                            <a href="Menu.aspx" class="btn btn-info"> <i class="fa fa-arrow-circle-left mr-2"></i>Continue Shopping </a>
 
                         </td>
                         <td>
@@ -100,7 +100,7 @@
 
                           <td>
                             <asp:LinkButton ID="lnkBtnCheckout" runat="server" CommandName="checkout" CssClass="btn btn-success">
-                               Checkout <i class="fa fa-arrow-circle-right mr-2"></i>
+                               Checkout <i class="fa fa-arrow-circle-right ml-2"></i>
                             </asp:LinkButton>
                         </td>
                     </tr>
