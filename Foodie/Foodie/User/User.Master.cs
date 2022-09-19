@@ -29,10 +29,14 @@ namespace Foodie.User
             if (Session["userId"] != null)
             {
                 lnkLoginOrLogout.Text = "Logout";
+                Utils utils = new Utils();
+
+                Session["cartCount"] = utils.cartCount(Convert.ToInt32(Session["userId"])).ToString();
             }
             else
             {
                 lnkLoginOrLogout.Text = "Login";
+                Session["cartCount"] = "0";
             }
 
 
