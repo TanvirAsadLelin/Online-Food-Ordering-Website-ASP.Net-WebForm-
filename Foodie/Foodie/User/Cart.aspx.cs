@@ -54,6 +54,124 @@ namespace Foodie.User
 
         protected void rCartItem_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
+            Utils utils = new Utils();
+            if (e.CommandName == "remove")
+            {
+                con = new SqlConnection(Connection.GetConnectionString());
+                cmd = new SqlCommand("Cart_Crud", con);
+                cmd.Parameters.AddWithValue("@Action", "DELETE");
+                cmd.Parameters.AddWithValue("@ProductId", e.CommandArgument);
+                cmd.Parameters.AddWithValue("@UserId", Session["userId"]);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                try
+                {
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    getCartItems();
+
+                    //Cart count
+                    Session["cartCount"] = utils.cartCount(Convert.ToInt32(Session["userId"]));
+                }
+                catch (Exception ex)
+                {
+
+                    Response.Write("<script> alert('Error- " + ex.Message + "');</script>");
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+
+            if (e.CommandName == "updateCart")
+            {
+                bool isCartUpdated = false;
+                for (int item = 0; item < rCartItem.Items.Count; item++)
+                {
+                    if (rCartItem.Items[item].ItemType == ListItemType.Item || rCartItem.Items[item].ItemType == ListItemType.AlternatingItem)
+                    {
+                        TextBox quantity = rCartItem.Items[item].FindControl("txtQuantity") as TextBox;
+                        HiddenField _productId = rCartItem.Items[item].FindControl("hdnProductId") as HiddenField;
+                        HiddenField _quantity = rCartItem.Items[item].FindControl("hdnQuantity") as HiddenField;
+
+                        int quantityFromCart = Convert.ToInt32(quantity.Text);
+                        int ProductId = Convert.ToInt32(_productId.Value);
+                        int quantityFromDB = Convert.ToInt32(_quantity.Value);
+
+                        bool isTrue = false;
+                        int updatedQuantity = 1;
+                        if (quantityFromCart > quantityFromDB)
+                        {
+                            updatedQuantity = quantityFromCart;
+                            isTrue = true;
+                        }
+                        else if (quantityFromCart < quantityFromDB)
+                        {
+                            updatedQuantity = quantityFromCart;
+                            isTrue = true;
+                        }
+
+
+                        if (isTrue)
+                        {
+                            //Update cart item's quantity in DB
+
+                            isCartUpdated = utils.updateCartQuantity(updatedQuantity, ProductId, Convert.ToInt32(Session["userId"]));
+                        }
+                    }
+                }
+
+                getCartItems();
+            }
+            if (e.CommandName == "checkOut")
+            {
+                bool isTrue = false;
+                string pName = string.Empty;
+                //First will check item quantity
+
+                for (int item = 0; item < rCartItem.Items.Count; item++)
+                {
+                    if (rCartItem.Items[item].ItemType == ListItemType.Item || rCartItem.Items[item].ItemType == ListItemType.AlternatingItem)
+                    {
+
+                        HiddenField _productId = rCartItem.Items[item].FindControl("hdnProductId") as HiddenField;
+                        HiddenField _cartQuantity = rCartItem.Items[item].FindControl("hdnQuantity") as HiddenField;
+                        HiddenField _productQuantity = rCartItem.Items[item].FindControl("hdnProductQuantity") as HiddenField;
+                        Label productName = rCartItem.Items[item].FindControl("lblName") as Label;
+                        int ProductId = Convert.ToInt32(_productId.Value);
+                        int cartQuantity = Convert.ToInt32(_cartQuantity.Value);
+                        int productQuantity = Convert.ToInt32(_productQuantity.Value);
+
+                        if (productQuantity > cartQuantity && productQuantity > 2)
+                        {
+
+                            isTrue = true;
+                        }
+                        else
+                        {
+                            isTrue = false;
+                            pName = productName.Text.ToString();
+                            break;
+                        }
+                    }
+                }
+                if (isTrue)
+                {
+                    Response.Redirect("Payment.aspx");
+
+                }
+                else
+                {
+                    lblMsg.Visible = true;
+                    lblMsg.Text = "Item <b> '" + pName + "' </b> is out of stock:";
+                    lblMsg.CssClass = "alert alert-warning";
+                }
+
+
+            }
+
+
 
         }
 
